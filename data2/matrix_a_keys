@@ -1,0 +1,9 @@
+mis_match mis_match
+mis_match gapy
+mis_match gapx
+gapy mis_match
+gapy gapy
+gapy gapx
+gapx mis_match
+gapx gapy
+gapx gapx

@@ -12,7 +12,9 @@ int main(void){
     
     HMM *hmm = new HMM(Pi, A, E);
 
-    baumwelch(hmm, pairs, 10);
+    int num_iterations = 5;
+
+    baumwelch(hmm, pairs, num_iterations);
 
     return 0;
 }
