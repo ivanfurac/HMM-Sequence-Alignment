@@ -14,6 +14,11 @@ Hidden Markov models include states and observations that are emitted in those s
 
 ![image](https://github.com/ivanfurac/HMM-Sequence-Alignment/assets/73389887/778e1e01-20fd-4bdf-bdeb-b415d659eabd)
 
+### Project Structure
+There are four steps in training an HMM model for sequence alignment and checking its performance:
+* **data preprocessing**: The HIV sequences dataset which was used in this project can be downloaded [here](https://www.hiv.lanl.gov/content/sequence/NEWALIGN/align.html).
+
+
 
 
 
