@@ -25,6 +25,18 @@ There are four steps in training an HMM model for sequence alignment and checkin
 The scores for the HMM model are on average 30% lower than the scores of reference alignments. The aligning process itself is quite fast, but the generated alignments are mostly suboptimal. A solution to this problem could be the use of a larger dataset (80 pairs of sequences are used in this project), but in this case the training process would last much longer and larger computational resources would be needed.
 
 ## Repository and Usage
+The code in the repository follows the four main steps described in previous chapters.
+
+Preprocessing scripts are written in Python and can be found in the `hmm_scripts_data` directory. The full dataset can be found in `hmm_scripts_data/hiv_alignment2.fasta`. The preprocessing script `hmm_scripts_data/preprocessing.py` generates train and test subsets and calculates initial parameters, which are stored in `start_params` directory as three separate values (for three parameter matrixes).
+
+The code for the second and third steps (model training and sequence alignment using the trained model) is written in C++ because of its performance, which is much faster compared with Python, which is crucial for the execution of complex Baum-Welch and Viterbi algorithms. File `Main_train.cpp` contains the main code for model training; in it, paths to train data subset and initial parameters are defined. File `Main_test.cpp` contains the main code for generating alignments; in it, paths to the test data subset and trained parameters are defined. `HMM.cpp` contains the class for a HMM model; `Baum-Welch.cpp` and `Viterbi.cpp` contain the implementations of those algorithms; and `Parser.cpp` and `Values.cpp` are helper files that contain data parsing functions and constants. Generated alignments are stored in the `alignments` directory.
+
+The code for scoring the alignments can be found in `hmm_scripts_data/alignment_scoring.py`. Python minineedle library was used for the Needleman-Wunsch algorithm implementation. More information about the library can be found on the official GitHub page: https://github.com/scastlara/minineedle. To install the minineedle library, execute the following command:
+
+```
+pip install minineedle
+```
+
 
 ## Authors and Acknowledgment
 The coauthor on this project was my colleague Jana Martinović (https://github.com/janamarti).
